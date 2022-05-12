@@ -1,0 +1,149 @@
+{% extends 'base.html.twig' %} {% block title %}Page Catalogue{% endblock %}{% block menu %}{{ parent() }} {% endblock %} {% block body %}
+<div class="image">
+    <div class="rest">
+        <p class="il">Welcome To Our Brazil Restaurant. Is it amet, consectetur adipisicing elit. <br/> Dolore atque maiores libero saepe qui illo recusandae odit. Voluptatibus hic<br/>veritatis officia eius autem saepe,<br/> in quasi? Ab magni dolore odit!</p>
+        <button class="bn">choix menu</button>
+    </div>
+    <div class="deplacer"><img class="art" src="/img/burger.jpeg" alt=""></div>
+</div>
+<div class="ecrit">
+    <h3 class="titre">
+        NOS SPÉCIALITÉS
+    </h3>
+</div>
+
+
+{# #}
+<section>
+    <div class="edit">
+        <div class="container px-4 px-lg-5 mt-5">
+            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center cartouche">
+                {% for burgers in burger %}
+                <div class="col mb-5 cartouche">
+                    <div class="card h-100">
+                        <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="">
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <h5 class="fw-bolder">{{burgers.nom_burger}}</h5>
+                                ${{burgers.prix}}
+                            </div>
+                        </div>
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><button id="btnPopup" onclick="openModal()" class="btn btn-outline-dark mt-auto">Détails</button></div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+
+        </div>
+    </div>
+</section>
+<div class="dirt">
+    <div class="container px-4 px-lg-5 mt-5">
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center catche">
+            {% for menus in menu %}
+            <div class="col mb-5 cartouche">
+                <div class="card h-100">
+                    <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="">
+                    <div class="card-body p-4">
+                        <div class="text-center">
+                            <h5 class="fw-bolder">{{menus.nom_menu}}</h5>
+                            $7000
+                        </div>
+                    </div>
+                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                        <div class="text-center"><button id="btnPopup" onclick="openModal()" class="btn btn-outline-dark mt-auto">Détails</button></div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<div id="overlay" class="overlay">
+    <div id="popup" class="popup">
+        <div class="detail">
+            <h1 class="">PAGE DÉTAILS<span class="btnClose" id="btnClose">&times;</span></h1>
+
+        </div>
+        <div class="teste">
+            <div class="container balise"><img class="img" src="/img/pizza.png" alt=""></div>
+            <div>
+                <h3>The Best International Recipes</h3>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                    <br/> industry 's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and<br/> scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into<br/> electronic
+                    typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset<br/> sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including
+                    versions of Lorem Ipsum.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="footer">
+    <div>
+        <p class="food">© Copyright &copy; papa demba ndoye</p>
+    </div>
+    <div class="copy">
+        <i class="fa fa-facebook food"></i>
+        <i class="fa fa-twitter food"></i>
+        <i class="fa fa-whatsapp food"></i>
+        <i class="fa fa-instagram food"></i>
+    </div>
+    <div class="tele">
+        <p class="food">TEL: 78-134-31-42/76141-31-42</p>
+    </div>
+</div>
+<style>
+    .footer {
+        background-color: #1c3c58;
+        display: flex;
+        justify-content: space-around;
+    }
+    
+    .tele {
+        float: right;
+    }
+    
+    .food {
+        color: #fff;
+    }
+    
+    .edit {
+        background-color: #1c3c58;
+    }
+    
+    .dirt {
+        background-color: #FE6E41;
+    }
+    
+    .catche {
+        background-color: #FE6E41;
+        margin-top: 10%;
+    }
+    
+    section {
+        display: block;
+    }
+</style>
+
+<script>
+    const btnPopup = document.getElementById('btnPopup');
+    const overlay = document.getElementById('overlay');
+    const btnClose = document.getElementById('btnClose');
+
+
+    btnPopup.addEventListener('click', openModal);
+    btnClose.addEventListener('click', closePopup);
+
+    function openModal() {
+        overlay.style.display = 'block';
+    }
+
+    function closePopup() {
+        overlay.style.display = 'none';
+    }
+</script>
+{% endblock %}

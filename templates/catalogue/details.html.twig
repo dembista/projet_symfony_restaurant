@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %} {% block title %}Hello ComplementController!{% endblock %} {% block body %}
+<div class="container">
+
+    <div class="detail">
+        <h1 class="">PAGE DÉTAILS</h1>
+    </div>
+    <div class="teste">
+        <div class="container balise"><img class="img" src="/img/pizza.png" alt=""></div>
+        <div>
+            <h3>The Best International Recipes</h3>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                <br/> industry 's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and<br/> scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into<br/> electronic
+                typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset<br/> sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions
+                of Lorem Ipsum.
+            </p>
+        </div>
+    </div>
+</div>
+<style>
+    .teste {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        top: 50%;
+    }
+    
+    .img {
+        width: 70%;
+        top: 50%;
+    }
+    
+    .detail {
+        background-color: #FDB83A;
+    }
+    
+    h1 {
+        justify-content: center;
+        text-align: center;
+    }
+</style>
+{% endblock %}
