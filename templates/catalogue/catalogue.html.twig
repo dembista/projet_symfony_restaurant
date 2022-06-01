@@ -1,5 +1,6 @@
 {% extends 'base.html.twig' %} {% block title %}Page Catalogue{% endblock %}{% block menu %}{{ parent() }} {% endblock %} {% block body %}
-<div class="image">
+<div class="image" id="home">
+    <div id="menu-bar" class="fas fa-bars"></div>
     <div class="rest">
         <p class="il">Welcome To Our Brazil Restaurant. Is it amet, consectetur adipisicing elit. <br/> Dolore atque maiores libero saepe qui illo recusandae odit. Voluptatibus hic<br/>veritatis officia eius autem saepe,<br/> in quasi? Ab magni dolore odit!</p>
         <button class="bn">choix menu</button>
@@ -15,21 +16,22 @@
 
 {# #}
 <section>
-    <div class="edit">
+    <div class="edit" id="burger">
         <div class="container px-4 px-lg-5 mt-5">
-            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center cartouche">
+            <div class="row gx-4 gx-lg-5 row-cols-4 row-cols-md-3 row-cols-xl-4 justify-content-center cartouche">
                 {% for burgers in burger %}
-                <div class="col mb-5 cartouche">
+                <div class="col-3 mb-5 cartouche">
                     <div class="card h-100">
-                        <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="">
+                        <img class="card-img-top" src="/img/burger-maison.jpeg" alt="">
                         <div class="card-body p-4">
                             <div class="text-center">
                                 <h5 class="fw-bolder">{{burgers.nom_burger}}</h5>
                                 ${{burgers.prix}}
                             </div>
                         </div>
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><button id="btnPopup" onclick="openModal()" class="btn btn-outline-dark mt-auto">Détails</button></div>
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent carton">
+                            <div class="text-center det"><a id="btnPopup" class="btn btn-outline-dark mt-auto" href="{{path('detail_burger',{'id': burgers.id}) }}">Détails</a></div>
+                            <div class="text-center"><a href="{{'/panier/add/' ~ burgers.id ~ burgers.type}}" class="btn btn-outline-dark mt-auto"><i class="bi bi-cart-plus"></i> Ajouter</a></div>
                         </div>
                     </div>
                 </div>
@@ -40,21 +42,22 @@
         </div>
     </div>
 </section>
-<div class="dirt">
+<div class="dirt" id="menu">
     <div class="container px-4 px-lg-5 mt-5">
         <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center catche">
             {% for menus in menu %}
-            <div class="col mb-5 cartouche">
+            <div class="col-3 mb-5 cartouche">
                 <div class="card h-100">
-                    <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="">
+                    <img class="card-img-top" src="/img/imagination.jpeg" alt="">
                     <div class="card-body p-4">
                         <div class="text-center">
                             <h5 class="fw-bolder">{{menus.nom_menu}}</h5>
                             $7000
                         </div>
                     </div>
-                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                        <div class="text-center"><button id="btnPopup" onclick="openModal()" class="btn btn-outline-dark mt-auto">Détails</button></div>
+                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent carton">
+                        <div class="text-center det"><a id="btnPopup" class="btn btn-outline-dark mt-auto" href="{{path('detail_menu',{'id': menus.id}) }}">Détails</a></div>
+                        <div class="text-center ajt"><a href="{{'/panier/add/' ~ menus.id ~ menus.type}}" class="btn btn-outline-dark mt-auto"><i class="bi bi-cart-plus"></i>&nbsp;&nbsp;Ajouter</a></div>
                     </div>
                 </div>
             </div>
@@ -82,12 +85,17 @@
         </div>
     </div>
 </div>
+<div class="map-responsive map">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15435.6933409062!2d-17.45194!3d14.7169263!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x504d9e7bb5384f5a!2sEcole%20221!5e0!3m2!1sfr!2ssn!4v1652402412954!5m2!1sfr!2ssn" width="600" height="450"
+        style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+
 <div class="footer">
     <div>
         <p class="food">© Copyright &copy; papa demba ndoye</p>
     </div>
     <div class="copy">
-        <i class="fa fa-facebook food"></i>
+        <i class="fab fa-facebook-f"></i>
         <i class="fa fa-twitter food"></i>
         <i class="fa fa-whatsapp food"></i>
         <i class="fa fa-instagram food"></i>
@@ -96,6 +104,7 @@
         <p class="food">TEL: 78-134-31-42/76141-31-42</p>
     </div>
 </div>
+<a href="#home" class="fas fa-angle-up" id="scroll-top"></a>
 <style>
     .footer {
         background-color: #1c3c58;
@@ -116,17 +125,72 @@
     }
     
     .dirt {
-        background-color: #FE6E41;
+        background-color: rgb(255, 245, 203);
     }
     
     .catche {
-        background-color: #FE6E41;
         margin-top: 10%;
     }
     
     section {
         display: block;
     }
+    
+    .cartouche {
+        margin-top: 10%;
+    }
+    
+    .card {
+        box-shadow: 10px 10px;
+    }
+    
+    .map-responsive {
+        overflow: hidden;
+        padding-bottom: 56.25%;
+        position: relative;
+        height: 0;
+    }
+    
+    .map-responsive iframe {
+        left: 0;
+        top: 0;
+        height: 90%;
+        width: 100%;
+        position: absolute;
+    }
+    
+    .carton {
+        display: flex;
+    }
+    
+    .det {
+        margin-right: 30px;
+    }
+    
+    .edit {
+        background-color: #e9e9e9;
+    }
+    
+    .ecrit {
+        color: #fff;
+        height: 30%;
+    }
+    #scroll-top{
+        position: fixed;
+        top:-120%;
+        right:2rem;
+        padding:.5rem 1.5rem;
+        font-size: 4rem;
+        background: rgb(255, 245, 203);
+        color:#fff;
+        border-radius: .5rem;
+        transition: 1s linear;
+        z-index: 1000;
+      }
+      
+      #scroll-top.active{
+        top:calc(100% - 12rem)
+      }
 </style>
 
 <script>
@@ -145,5 +209,26 @@
     function closePopup() {
         overlay.style.display = 'none';
     }
+let menu = document.querySelector('#menu-bar');
+let navbar = document.querySelector('.image');
+
+menu.onclick = () =>{
+
+  menu.classList.toggle('fa-times');
+  navbar.classList.toggle('active');
+
+}
+window.onscroll = () =>{
+
+  menu.classList.remove('fa-times');
+  navbar.classList.remove('active');
+
+  if(window.scrollY > 60){
+    document.querySelector('#scroll-top').classList.add('active');
+  }else{
+    document.querySelector('#scroll-top').classList.remove('active');
+  }
+
+}
 </script>
 {% endblock %}

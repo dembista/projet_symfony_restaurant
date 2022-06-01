@@ -1,4 +1,12 @@
 {% extends 'base.html.twig' %} {% block title %}Hello ComplementController!{% endblock %} {% block body %}
+<div class="image">
+    <div class="rest">
+        <p class="il">Welcome To Our Brazil Restaurant. Is it amet, consectetur adipisicing elit. <br/> Dolore atque maiores libero saepe qui illo recusandae odit. Voluptatibus hic<br/>veritatis officia eius autem saepe,<br/> in quasi? Ab magni dolore odit!</p>
+        <button class="bn">choix menu</button>
+    </div>
+    <div class="deplacer"><img class="art" src="/img/burger.jpeg" alt=""></div>
+</div>
+
 <div class="container">
 
     <div class="detail">
@@ -14,6 +22,24 @@
                 of Lorem Ipsum.
             </p>
         </div>
+    </div>
+</div>
+<div class="map-responsive map">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15435.6933409062!2d-17.45194!3d14.7169263!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x504d9e7bb5384f5a!2sEcole%20221!5e0!3m2!1sfr!2ssn!4v1652402412954!5m2!1sfr!2ssn" width="600" height="450"
+        style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+<div class="footer">
+    <div>
+        <p class="food">© Copyright &copy; papa demba ndoye</p>
+    </div>
+    <div class="copy">
+        <i class="fa fa-facebook food"></i>
+        <i class="fa fa-twitter food"></i>
+        <i class="fa fa-whatsapp food"></i>
+        <i class="fa fa-instagram food"></i>
+    </div>
+    <div class="tele">
+        <p class="food">TEL: 78-134-31-42/76141-31-42</p>
     </div>
 </div>
 <style>
@@ -36,6 +62,64 @@
     h1 {
         justify-content: center;
         text-align: center;
+    }
+    
+    .container {
+        margin-top: 50px;
+    }
+    
+    .footer {
+        background-color: #1c3c58;
+        display: flex;
+        justify-content: space-around;
+    }
+    
+    .tele {
+        float: right;
+    }
+    
+    .food {
+        color: #fff;
+    }
+    
+    .edit {
+        background-color: #1c3c58;
+    }
+    
+    .dirt {
+        background-color: #FE6E41;
+    }
+    
+    .catche {
+        background-color: #FE6E41;
+        margin-top: 10%;
+    }
+    
+    section {
+        display: block;
+    }
+    
+    .cartouche {
+        margin-top: 10%;
+    }
+    
+    .card {
+        box-shadow: 10px 10px;
+    }
+    
+    .map-responsive {
+        overflow: hidden;
+        padding-bottom: 56.25%;
+        position: relative;
+        height: 0;
+    }
+    
+    .map-responsive iframe {
+        left: 0;
+        top: 0;
+        height: 90%;
+        width: 100%;
+        position: absolute;
     }
 </style>
 {% endblock %}

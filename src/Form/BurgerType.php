@@ -10,6 +10,7 @@ use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class BurgerType extends AbstractType
 {
@@ -32,6 +33,15 @@ class BurgerType extends AbstractType
             ],
             'attr' => [
                 'class' => 'prix',
+            ]
+        ])
+        ->add('description', TextareaType::class, [
+            'label' => 'Description Burger',
+            'label_attr'=> [
+                'class'=>'form-label mt-4'
+            ],
+            'attr' => [
+                'class' => 'nomBurger',
             ]
         ])
         ->add('images', FileType::class, [

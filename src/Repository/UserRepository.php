@@ -17,9 +17,7 @@ use Doctrine\ORM\Mapping\DiscriminatorColumn;
 use Symfony\Component\Serializer\Annotation\DiscriminatorMap;
 use ORM\Entity;
 
-#[InheritanceType("JOINED")]
-#[DiscriminatorColumn(name: "type", type: "string")]
-#[DiscriminatorMap(["user" => "User", "client" => "Client", "gestionnaire" => "Gestionnaire"])]
+
 /**
  * @extends ServiceEntityRepository<User>
  *
@@ -46,13 +44,13 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
             $this->_em->flush();
         }
     }
-    public function addUser(User $entity): void {
+//     public function addUser(User $entity): void {
        
-        $entityManager = $this->getEntityManager();
-        $entityManager->persist($entity);
-        $entityManager->flush();
+//         $entityManager = $this->getEntityManager();
+//         $entityManager->persist($entity);
+//         $entityManager->flush();
     
-}
+// }
     /**
      * @throws ORMException
      * @throws OptimisticLockException

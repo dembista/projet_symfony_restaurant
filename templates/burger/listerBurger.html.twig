@@ -14,7 +14,7 @@
             <td>{{burgs.prix}}</td>
             <td>
                 <div class="trash">
-                    <p><a href="{{'remove/' ~ burgs.id}}" class="t">Archiver  <i class="icon-trash"></i></a></p>
+                    <p><a href="{{'archiveBurgs/' ~ burgs.id}}" class="t">Archiver  <i class="icon-trash"></i></a></p>
                     <p><a href="{{'burger/edit/' ~ burgs.id}}" class="e">Modifier <i class="icon-edit-sign"></i></a></p>
                 </div>
             </td>
@@ -22,6 +22,7 @@
         {% endfor %}
     </tbody>
 </table>
+<div class="navigation d-flex justify-content-center align-items-center">{{ knp_pagination_render(burg) }}</div>
 <style>
     .trash {
         display: flex;
@@ -41,6 +42,15 @@
         background-color: yellow;
         padding: 8px;
         margin-left: 8px;
+    }
+    
+    .navigation {
+        background-color: black;
+        color: white;
+        height: 10vh;
+        text-decoration: none;
+        width: 62vw;
+        margin-left: 19%;
     }
     
     @keyframes modal_open {

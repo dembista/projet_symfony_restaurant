@@ -24,9 +24,21 @@ class Complement
     #[ORM\OneToMany(mappedBy: 'complement', targetEntity: Image::class)]
     private $images;
 
+    #[ORM\OneToMany(mappedBy: 'complement', targetEntity: Commande::class)]
+    private $commandes;
+
+    #[ORM\OneToMany(mappedBy: 'complements', targetEntity: Menu::class)]
+    private $menus;
+
+    #[ORM\OneToMany(mappedBy: 'complement', targetEntity: Menu::class)]
+    private $menu;
+
     public function __construct()
     {
         $this->images = new ArrayCollection();
+        $this->commandes = new ArrayCollection();
+        $this->menus = new ArrayCollection();
+        $this->menu = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -86,5 +98,73 @@ class Complement
         }
 
         return $this;
+    }
+
+    /**
+     * @return Collection<int, Commande>
+     */
+    public function getCommandes(): Collection
+    {
+        return $this->commandes;
+    }
+
+    // public function addCommande(Commande $commande): self
+    // {
+    //     if (!$this->commandes->contains($commande)) {
+    //         $this->commandes[] = $commande;
+    //         $commande->setComplement($this);
+    //     }
+
+    //     return $this;
+    // }
+
+    // public function removeCommande(Commande $commande): self
+    // {
+    //     if ($this->commandes->removeElement($commande)) {
+    //         // set the owning side to null (unless already changed)
+    //         if ($commande->getComplement() === $this) {
+    //             $commande->setComplement(null);
+    //         }
+    //     }
+
+    //     return $this;
+    // }
+
+    /**
+     * @return Collection<int, Menu>
+     */
+    public function getMenus(): Collection
+    {
+        return $this->menus;
+    }
+
+    public function addMenu(Menu $menu): self
+    {
+        if (!$this->menus->contains($menu)) {
+            $this->menus[] = $menu;
+            $menu->setComplements($this);
+        }
+
+        return $this;
+    }
+
+    public function removeMenu(Menu $menu): self
+    {
+        if ($this->menus->removeElement($menu)) {
+            // set the owning side to null (unless already changed)
+            if ($menu->getComplements() === $this) {
+                $menu->setComplements(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Menu>
+     */
+    public function getMenu(): Collection
+    {
+        return $this->menu;
     }
 }

@@ -1,4 +1,10 @@
 {
+    "botman/botman": {
+        "version": "v2.7.1"
+    },
+    "botman/driver-web": {
+        "version": "v1.5.3"
+    },
     "doctrine/annotations": {
         "version": "1.13",
         "recipe": {
@@ -92,8 +98,29 @@
     "egulias/email-validator": {
         "version": "3.1.2"
     },
+    "evenement/evenement": {
+        "version": "v3.0.1"
+    },
     "friendsofphp/proxy-manager-lts": {
         "version": "v1.0.12"
+    },
+    "friendsofsymfony/rest-bundle": {
+        "version": "3.3",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "main",
+            "version": "2.2",
+            "ref": "fa845143b7e0a4c70aedd1a88c549e6d977e9ae5"
+        },
+        "files": [
+            "config/packages/fos_rest.yaml"
+        ]
+    },
+    "knplabs/knp-components": {
+        "version": "v3.5.0"
+    },
+    "knplabs/knp-paginator-bundle": {
+        "version": "v5.8.0"
     },
     "laminas/laminas-code": {
         "version": "4.5.1"
@@ -101,8 +128,17 @@
     "monolog/monolog": {
         "version": "2.5.0"
     },
+    "mpociot/pipeline": {
+        "version": "1.0.2"
+    },
     "nikic/php-parser": {
         "version": "v4.13.2"
+    },
+    "opis/closure": {
+        "version": "3.6.3"
+    },
+    "php-webdriver/webdriver": {
+        "version": "1.12.1"
     },
     "phpdocumentor/reflection-common": {
         "version": "2.2.0"
@@ -131,6 +167,27 @@
     "psr/log": {
         "version": "3.0.0"
     },
+    "react/cache": {
+        "version": "v1.1.1"
+    },
+    "react/dns": {
+        "version": "v1.9.0"
+    },
+    "react/event-loop": {
+        "version": "v1.3.0"
+    },
+    "react/promise": {
+        "version": "v2.9.0"
+    },
+    "react/promise-timer": {
+        "version": "v1.8.0"
+    },
+    "react/socket": {
+        "version": "v1.11.0"
+    },
+    "react/stream": {
+        "version": "v1.2.0"
+    },
     "sensio/framework-extra-bundle": {
         "version": "6.2",
         "recipe": {
@@ -143,8 +200,14 @@
             "config/packages/sensio_framework_extra.yaml"
         ]
     },
+    "spatie/macroable": {
+        "version": "1.0.1"
+    },
     "symfony/asset": {
         "version": "v6.0.7"
+    },
+    "symfony/browser-kit": {
+        "version": "v6.0.3"
     },
     "symfony/cache": {
         "version": "v6.0.8"
@@ -190,6 +253,9 @@
     },
     "symfony/doctrine-messenger": {
         "version": "v6.0.8"
+    },
+    "symfony/dom-crawler": {
+        "version": "v6.0.6"
     },
     "symfony/dotenv": {
         "version": "v6.0.5"
@@ -326,6 +392,15 @@
     },
     "symfony/options-resolver": {
         "version": "v6.0.3"
+    },
+    "symfony/panther": {
+        "version": "2.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "1.0",
+            "ref": "877d853a05c6713665a2f4b954734592680abff6"
+        }
     },
     "symfony/password-hasher": {
         "version": "v6.0.8"
@@ -509,6 +584,9 @@
     "symfony/yaml": {
         "version": "v6.0.3"
     },
+    "tightenco/collect": {
+        "version": "v8.83.12"
+    },
     "twig/extra-bundle": {
         "version": "v3.3.8"
     },
@@ -517,5 +595,11 @@
     },
     "webmozart/assert": {
         "version": "1.10.0"
+    },
+    "willdurand/jsonp-callback-validator": {
+        "version": "v2.0.0"
+    },
+    "willdurand/negotiation": {
+        "version": "3.1.0"
     }
 }

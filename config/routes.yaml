@@ -5,3 +5,7 @@ controllers:
 kernel:
     resource: ../src/Kernel.php
     type: annotation
+app_gestionnaire:
+    path: /gestionnaire/archiveburgs/
+    controller: App\Controller\AdminController::archivBur
+    methods: ['GET', 'HEAD']

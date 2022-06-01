@@ -30,10 +30,11 @@ class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
 
     public function authenticate(Request $request): Passport
     {
+       
         $email = $request->request->get('email', '');
 
         $request->getSession()->set(Security::LAST_USERNAME, $email);
-
+        //dd($email);
         return new Passport(
             new UserBadge($email),
             new PasswordCredentials($request->request->get('password', '')),
@@ -41,17 +42,31 @@ class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
                 new CsrfTokenBadge('authenticate', $request->request->get('_csrf_token')),
             ]
         );
+        //dd('tester');
     }
 
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, string $firewallName): ?Response
     {
+        
         if ($targetPath = $this->getTargetPath($request->getSession(), $firewallName)) {
             return new RedirectResponse($targetPath);
         }
 
-        // For example:
-        // return new RedirectResponse($this->urlGenerator->generate('some_route'));
-        throw new \Exception('TODO: provide a valid redirect inside '.__FILE__);
+        $roles = $token->getRoleNames();
+        $rolesTab = array_map(function ($role) {
+            return $role;
+        }, $roles);
+        
+        if (in_array('ROLE_GESTIONNAIRE', $rolesTab, true)) {
+            // c'est un gestionnaire : on le rediriger vers l'espace gestionnaire
+            $redirection = new RedirectResponse($this->urlGenerator->generate('app_lister_burger'));
+        } elseif (in_array('ROLE_USER', $rolesTab, true)) {
+            // c'est un utilisaeur lambda : on le rediriger vers l'accueil
+           
+            $redirection = new RedirectResponse($this->urlGenerator->generate('catalogue_burger'));
+        }
+
+        return $redirection;
     }
 
     protected function getLoginUrl(Request $request): string

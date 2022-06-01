@@ -21,12 +21,12 @@ class ComplementController extends AbstractController
         ]);
     }
     #[Route('/complement', name: 'add_complement')]
-    #[Route('/complement/edit/{id}', name: 'edit_burger')]
+    #[Route('/complement/edit/{id}', name: 'edit_burger', methods: ['POST'])]
     public function create(?Complement $complement,Request $request, ComplementRepository $repo){
         // if(!$burger){
         //     $burger = new burger();
         // }
-        dd('tester');
+        //dd('tester');
         if(!$complement){
             $complement = new Complement();
         }

@@ -8,7 +8,7 @@
         </tr>
     </thead>
     <tbody>
-        {% for mens in men %}
+        {% for mens in menu %}
         <tr>
             <td><strong>{{mens.nom_menu}}</strong></td>
             <td>{{mens.prix}}</td>
@@ -22,6 +22,7 @@
         {% endfor %}
     </tbody>
 </table>
+<div class="navigation d-flex justify-content-center align-items-center">{{ knp_pagination_render(menu) }}</div>
 <style>
     .trash {
         display: flex;
@@ -41,6 +42,15 @@
         background-color: yellow;
         padding: 8px;
         margin-left: 8px;
+    }
+    
+    .navigation {
+        background-color: black;
+        color: white;
+        height: 10vh;
+        text-decoration: none;
+        width: 62vw;
+        margin-left: 19%;
     }
     
     @keyframes modal_open {

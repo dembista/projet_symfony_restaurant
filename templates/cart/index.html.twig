@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %} {% block body %}
+<div class="mt-5 container">
+    <h1>BIENVENU DANS VOTRE PANIER</h1>
+    {% if datas | length > 0 %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Burger</th>
+                <th>Prix</th>
+                <th>Quantité</th>
+                <th>Total</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for data in datas %}
+            <tr>
+                <td>{{ data.burger.nom }}</td>
+                <td>{{ data.burger.prix }}</td>
+                <td>{{ data.quantity }}</td>
+                <td>{{ data.burger.prix * data.quantity}}</td>
+                <td> <a href="{{ path('app_remove_panier',{'id':data.burger.id}) }}" class="btn btn-primary"><i class="fa fa-trash"></i></a> </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3">Total:</td>
+                <td>{{ total }}</td>
+                <td></td>
+            </tr>
+        </tfoot>
+
+    </table>
+    {% else %}
+    <p>le panier est vide </p>
+    {% endif %}
+
+</div>
+{% endblock %}

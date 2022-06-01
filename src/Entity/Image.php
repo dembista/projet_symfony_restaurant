@@ -22,6 +22,15 @@ class Image
     #[ORM\ManyToOne(targetEntity: Complement::class, inversedBy: 'images')]
     private $complement;
 
+    #[ORM\ManyToOne(targetEntity: Menu::class, inversedBy: 'images')]
+    private $menu;
+
+    #[ORM\ManyToOne(targetEntity: Burger::class, inversedBy: 'imgs')]
+    private $burg;
+
+    #[ORM\ManyToOne(targetEntity: Burger::class, inversedBy: 'imags')]
+    private $bur;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -59,6 +68,42 @@ class Image
     public function setComplement(?Complement $complement): self
     {
         $this->complement = $complement;
+
+        return $this;
+    }
+
+    public function getMenu(): ?Menu
+    {
+        return $this->menu;
+    }
+
+    public function setMenu(?Menu $menu): self
+    {
+        $this->menu = $menu;
+
+        return $this;
+    }
+
+    public function getBurg(): ?Burger
+    {
+        return $this->burg;
+    }
+
+    public function setBurg(?Burger $burg): self
+    {
+        $this->burg = $burg;
+
+        return $this;
+    }
+
+    public function getBur(): ?Burger
+    {
+        return $this->bur;
+    }
+
+    public function setBur(?Burger $bur): self
+    {
+        $this->bur = $bur;
 
         return $this;
     }
