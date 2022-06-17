@@ -4,7 +4,14 @@
     <option value="Terminer ">Terminer</option><br> 
     <option value="Annuler ">Annuler</option><br>    <!-- tes options -->
 </select> #}
-
+<div class="dropdown second">
+    <button class="dropbtn">Filtrer par Etat</button>
+    <div class="dropdown-content">
+        <a href="{{path('app_commande')}}">En cours</a>
+        <a href="{{path('app_commande_Annuler')}}">Annuler</a>
+        <a href="{{path('app_commande_terminer')}}">Terminer</a>
+    </div>
+</div>
 <table>
     <thead>
         <tr>
